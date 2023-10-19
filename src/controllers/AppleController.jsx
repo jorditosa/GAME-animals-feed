@@ -13,7 +13,7 @@ function AppleController() {
     // Resetear el estado del juego
     setTimeout(() => {
       dispatch(setAction('Idle_2'));
-    }, 4000);
+    }, 2000);
   }
 
 

@@ -31,7 +31,8 @@ export const Experience = () => {
       <Mountain scale={[1,1,1]} position={[-11, -1, -11]} rotation-y={180}/>
       <Mountain scale={[1,2,2]} position={[12, -1, -22]}/>
       <Mountain scale={[4,1,1]} position={[-12, -1, -22]}/>
-      <Tree scale={[1,1,1]} position={[4, -1, 2]} rotation-y={2}/>
+      <Tree scale={[1.5,1.5,1.5]} position={[4, -1, 1.5]} rotation-y={2}/>
+      <Tree scale={[1.8,1.8,2.2]} position={[3, -1, -5]} rotation-y={20}/>
       <Flowers scale={[0.4,0.4,0.4]} position={[-2.2, -1, -1.5]}/>
       <Flowers scale={[0.4,0.5,0.5]} position={[-0.2, 0, -5]}/>
       <Flowers scale={[0.4,0.3,0.6]} position={[-2.5, 0, -4]}/>
