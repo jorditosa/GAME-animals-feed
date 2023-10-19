@@ -13,6 +13,8 @@ export function Wolf(props) {
   const { actions } = useAnimations(animations, group)
   const wolfStatus = useSelector(state => state.wolf.wolfStatus);
 
+  console.log(actions);
+
   useEffect(() => {
     // Detiene la acción anterior (si existe)
     if (actions.currentAction) {
@@ -22,11 +24,6 @@ export function Wolf(props) {
     // Configura la nueva acción
     const newAction = actions[wolfStatus];
     newAction.reset().fadeIn(0.5).play();
-
-    // Haz que la accion solo dure 5 segundos
-    setTimeout(() => {
-      newAction.fadeOut(0.5).stop();
-    }, 5000);
 
     // Actualiza la acción actual
     actions.currentAction = newAction;

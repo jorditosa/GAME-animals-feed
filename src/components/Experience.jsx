@@ -21,23 +21,25 @@ export const Experience = () => {
       />
 
       {/* LIGHTS */}
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.4} />
       <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
 
       {/* BACKGROUND */}
+      <Mountain scale={[3,1.4,2]} position={[-7, -1, -25]}/>
       <Mountain scale={[2,2,2]} position={[0, -1, -22]}/>
-      <Mountain scale={[1,1,1]} position={[11, -1, -11]}/>
+      <Mountain scale={[1,1,1]} position={[11, -1, -11]} rotation-y={40}/>
       <Mountain scale={[1,1,1]} position={[-11, -1, -11]} rotation-y={180}/>
       <Mountain scale={[1,2,2]} position={[12, -1, -22]}/>
       <Mountain scale={[4,1,1]} position={[-12, -1, -22]}/>
       <Tree scale={[1,1,1]} position={[4, -1, 2]} rotation-y={2}/>
-      <Flowers scale={[0.4,0.4,0.4]} position={[-2, -1, -1.5]}/>
+      <Flowers scale={[0.4,0.4,0.4]} position={[-2.2, -1, -1.5]}/>
+      <Flowers scale={[0.4,0.5,0.5]} position={[-0.2, 0, -5]}/>
+      <Flowers scale={[0.4,0.3,0.6]} position={[-2.5, 0, -4]}/>
       
       {/* FLOOR */}
         <RigidBody type="fixed" colliders={false} >
           <CylinderCollider args={[1/2, 1]} />
           <Cylinder scale={[50,0.2,50]} receiveShadow>
-            <meshStandardMaterial color="#92b241" />
             <Grass />
           </Cylinder>
         </RigidBody>

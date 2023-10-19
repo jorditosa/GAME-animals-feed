@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Canvas shadows camera={{ position: [0, 3, 12], fov: 65 }}>
+      <Canvas shadows camera={{ position: [0, 2.5, 15], fov: 65 }}>
         <color attach="background" args={["#dbecfb"]} />
         <Suspense>
           <Physics>

@@ -11,7 +11,7 @@ const Grass = () => {
   colorMap.repeat.set(20, 20);
 
   return (
-      <meshStandardMaterial map={colorMap} mapSize={[20, 20]}/>
+        <meshStandardMaterial map={colorMap}/>
   );
 };
 

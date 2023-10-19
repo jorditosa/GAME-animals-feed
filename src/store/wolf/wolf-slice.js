@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  wolfStatus: "Idle",
+  wolfStatus: "Idle_2",
 }
 
 const wolfSlice = createSlice({

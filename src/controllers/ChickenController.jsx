@@ -8,6 +8,12 @@ function ChickenController() {
   const handleClick = () => {
     playAudio("/audios/success.mp3", false)
     dispatch(setAction('Gallop'))
+
+    dispatch(setAction('Gallop'));
+    // Resetear el estado del juego
+    setTimeout(() => {
+      dispatch(setAction('Idle_2'));
+    }, 4000);
   }
 
   return (
