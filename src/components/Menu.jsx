@@ -15,7 +15,7 @@ function Menu() {
       className="btn-warning"
       onClick={() => {
         dispatch(startGame('play'))
-        playAudio(`/audios/soundtrack.mp3`, true)
+        playAudio('/audios/soundtrack.mp3', true)
       }}
       >
         Comença!

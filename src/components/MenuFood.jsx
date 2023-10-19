@@ -1,13 +1,20 @@
+import { useDispatch } from "react-redux";
+import playAudio from "../helpers/playAudio";
+import { setAction } from "../store/wolf/wolf-slice";
+
 function MenuFood() {
+  const dispatch = useDispatch();
 
   const handleSuccess = () => {
-    console.log('success')
+    dispatch(setAction('Gallop'))
+    playAudio('/audios/success.mp3', false)
   }
 
   const handleFail = () => {
-    console.log('fail')
+    dispatch(setAction('Attack'))
+    playAudio('/audios/fail.mp3', false)
   }
-  
+
   return (
     <div className="menu-food row flex-edges">
       <button 

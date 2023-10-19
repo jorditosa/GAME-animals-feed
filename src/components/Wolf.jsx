@@ -5,17 +5,30 @@ Command: npx gltfjsx@6.2.13 public/models/Wolf.gltf
 
 import { useAnimations, useGLTF } from '@react-three/drei'
 import React, { useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
 
 export function Wolf(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models/Wolf.gltf')
   const { actions } = useAnimations(animations, group)
+  const wolfStatus = useSelector(state => state.wolf.wolfStatus);
 
   useEffect(() => {
-    actions["Idle"].reset().fadeIn(0.5).play();
-  }, [])
+    // Detiene la acción anterior (si existe)
+    if (actions.currentAction) {
+      actions.currentAction.stop();
+    }
 
-  console.log(actions)
+    // Configura la nueva acción
+    const newAction = actions[wolfStatus];
+    newAction.reset().fadeIn(0.5).play();
+
+    // Actualiza la acción actual
+    actions.currentAction = newAction;
+  }, [wolfStatus, actions]);
+
+  console.log(wolfStatus, actions);
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
