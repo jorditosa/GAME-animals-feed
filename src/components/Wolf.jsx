@@ -4,12 +4,18 @@ Command: npx gltfjsx@6.2.13 public/models/Wolf.gltf
 */
 
 import { useAnimations, useGLTF } from '@react-three/drei'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export function Wolf(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models/Wolf.gltf')
   const { actions } = useAnimations(animations, group)
+
+  useEffect(() => {
+    actions["Idle"].reset().fadeIn(0.5).play();
+  }, [])
+
+  console.log(actions)
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

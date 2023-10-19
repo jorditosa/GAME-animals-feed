@@ -3,6 +3,7 @@ import { CylinderCollider, RigidBody } from "@react-three/rapier";
 import { useDispatch, useSelector } from "react-redux";
 import WolfController from "../controllers/WolfController";
 import FeedAnimal from "../gameComponents/FeedAnimal";
+import { Flowers } from "./Flowers";
 import { Mountain } from "./Mountain";
 import { Tree } from "./Tree";
 export const Experience = () => {
@@ -14,6 +15,7 @@ export const Experience = () => {
       <group position={[0, -0.5, 0]}>
       <OrbitControls 
       enableRotate={true}
+      enableZoom={false}
       />
 
       {/* LIGHTS */}
@@ -26,7 +28,8 @@ export const Experience = () => {
       <Mountain scale={[1,1,1]} position={[-11, -1, -11]} rotation-y={180}/>
       <Mountain scale={[1,2,2]} position={[12, -1, -22]}/>
       <Mountain scale={[4,1,1]} position={[-12, -1, -22]}/>
-      <Tree scale={[1,1,1]} position={[6, -1, 3]}/>
+      <Tree scale={[1,1,1]} position={[4, -1, 2]} rotation-y={2}/>
+      <Flowers scale={[0.4,0.4,0.4]} position={[-3, -1, 0]}/>
       
       {/* FLOOR */}
         <RigidBody type="fixed" colliders={false} >
@@ -43,7 +46,7 @@ export const Experience = () => {
       {
         gameStatus === 'play' ?
         <>
-         <FeedAnimal />
+          <FeedAnimal />
         </>
         : null
       }

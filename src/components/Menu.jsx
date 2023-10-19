@@ -9,11 +9,10 @@ function Menu() {
   if (gameStatus === 'play') return null
 
   return (
-    <div className="menu card">
-      <h2 className="card-title">Ens ajudes a alimentar el llop?</h2>
-      <i className="nes-pikachu"></i>
+    <div className="menu container border border-5 border-primary padding-small">
+      <h3 className="card-title">Ens ajudes a alimentar el llop?</h3>
       <button 
-      className="nes-btn is-warning"
+      className="btn-warning"
       onClick={() => {
         dispatch(startGame('play'))
         playAudio(`/audios/soundtrack.mp3`, true)

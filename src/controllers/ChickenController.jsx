@@ -6,7 +6,7 @@ function ChickenController() {
     <group>
           <Float 
           rotationIntensity={1}
-          speed={1}
+          speed={2}
           >
             <Chicken scale={0.1} position={[-1.5, 1, 5]} />
           </Float>

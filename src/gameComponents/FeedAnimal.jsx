@@ -9,9 +9,8 @@ function FeedAnimal() {
   return (
     <>
       {/* FOOD */}
-      <ChickenController scale={[0.5,0.5,0.5]} position={[6, -1, 3]}/>
-      <AppleController scale={[0.5,0.5,0.5]} position={[6, -1, 3]}/>
-    
+        <ChickenController scale={[0.5,0.5,0.5]} position={[5, -1, 3]}/>
+        <AppleController scale={[0.5,0.5,0.5]} position={[-5, -1, 3]}/>    
     </>
   )
 }
