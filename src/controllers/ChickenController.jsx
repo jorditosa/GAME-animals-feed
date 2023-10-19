@@ -5,10 +5,10 @@ function ChickenController() {
   return (
     <group>
           <Float 
-          rotationIntensity={1}
+          rotationIntensity={0.5}
           speed={2}
           >
-            <Chicken scale={0.1} position={[-1.5, 0.5, 6]} />
+            <Chicken scale={0.1} position={[-1, 0.5, 6]} />
           </Float>
     </group>
   )

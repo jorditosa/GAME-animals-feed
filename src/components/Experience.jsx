@@ -29,7 +29,7 @@ export const Experience = () => {
       <Mountain scale={[1,2,2]} position={[12, -1, -22]}/>
       <Mountain scale={[4,1,1]} position={[-12, -1, -22]}/>
       <Tree scale={[1,1,1]} position={[4, -1, 2]} rotation-y={2}/>
-      <Flowers scale={[0.4,0.4,0.4]} position={[-3, -1, 0]}/>
+      <Flowers scale={[0.4,0.4,0.4]} position={[-2, -1, -1.5]}/>
       
       {/* FLOOR */}
         <RigidBody type="fixed" colliders={false} >

@@ -10,9 +10,9 @@ function Menu() {
 
   return (
     <div className="menu container border border-5 border-primary padding-small">
-      <h3 className="card-title">Ens ajudes a alimentar el llop?</h3>
+      <p className="card-title">Ens ajudes a alimentar el llop?</p>
       <button 
-      className="btn-warning"
+      className="btn-secondary"
       onClick={() => {
         dispatch(startGame('play'))
         playAudio('/audios/soundtrack.mp3', true)
