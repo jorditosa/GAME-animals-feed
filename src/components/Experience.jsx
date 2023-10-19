@@ -1,14 +1,19 @@
 import { Cylinder, OrbitControls } from "@react-three/drei";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
+import { useDispatch, useSelector } from "react-redux";
 import WolfController from "../controllers/WolfController";
+import FeedAnimal from "../gameComponents/FeedAnimal";
 import { Mountain } from "./Mountain";
 import { Tree } from "./Tree";
-
 export const Experience = () => {
+  const dispatch = useDispatch()
+  const gameStatus = useSelector(state => state.gameStatus.gameStat)
+  
   return (
     <>
+      <group position={[0, -0.5, 0]}>
       <OrbitControls 
-      enableRotate={false}
+      enableRotate={true}
       />
 
       {/* LIGHTS */}
@@ -24,7 +29,6 @@ export const Experience = () => {
       <Tree scale={[1,1,1]} position={[6, -1, 3]}/>
       
       {/* FLOOR */}
-      <group position={[0, -0.5, 0]}>
         <RigidBody type="fixed" colliders={false} >
           <CylinderCollider args={[1/2, 1]} />
           <Cylinder scale={[50,0.1,50]} receiveShadow>
@@ -35,6 +39,14 @@ export const Experience = () => {
       {/* ANIMAL */}
         <WolfController />
       </group>
+
+      {
+        gameStatus === 'play' ?
+        <>
+         <FeedAnimal />
+        </>
+        : null
+      }
 
     </>
   );
