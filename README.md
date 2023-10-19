@@ -26,4 +26,4 @@ https://poly.pizza/
 
 
 
-![image]("./public/screenshot.png")
+![screenshot](public/screenshot.png)
