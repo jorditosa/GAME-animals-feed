@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import WolfController from "../controllers/WolfController";
 import FeedAnimal from "../gameComponents/FeedAnimal";
 import { Flowers } from "./Flowers";
+import Grass from "./Grass";
 import { Mountain } from "./Mountain";
 import { Tree } from "./Tree";
 export const Experience = () => {
@@ -16,6 +17,7 @@ export const Experience = () => {
       <OrbitControls 
       enableRotate={true}
       enableZoom={false}
+      maxPolarAngle={Math.PI / 2.5}
       />
 
       {/* LIGHTS */}
@@ -34,8 +36,9 @@ export const Experience = () => {
       {/* FLOOR */}
         <RigidBody type="fixed" colliders={false} >
           <CylinderCollider args={[1/2, 1]} />
-          <Cylinder scale={[50,0.1,50]} receiveShadow>
-            <meshStandardMaterial color="#92cc41" />
+          <Cylinder scale={[50,0.2,50]} receiveShadow>
+            <meshStandardMaterial color="#92b241" />
+            <Grass />
           </Cylinder>
         </RigidBody>
 

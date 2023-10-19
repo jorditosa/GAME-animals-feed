@@ -1,7 +1,7 @@
 import { CapsuleCollider, RigidBody } from "@react-three/rapier";
 import { Wolf } from "../components/Wolf";
 
-function WolfController(action) {
+function WolfController() {
 
   return (
     <group>

@@ -23,11 +23,14 @@ export function Wolf(props) {
     const newAction = actions[wolfStatus];
     newAction.reset().fadeIn(0.5).play();
 
+    // Haz que la accion solo dure 5 segundos
+    setTimeout(() => {
+      newAction.fadeOut(0.5).stop();
+    }, 5000);
+
     // Actualiza la acción actual
     actions.currentAction = newAction;
   }, [wolfStatus, actions]);
-
-  console.log(wolfStatus, actions);
 
   return (
     <group ref={group} {...props} dispose={null}>

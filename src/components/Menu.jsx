@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import playAudio from "../helpers/playAudio.js"
+import playAudio from "../helpers/playAudio"
 import { startGame } from "../store/gameStatus/game-slice"
 
 function Menu() {
@@ -15,7 +15,7 @@ function Menu() {
       className="btn-secondary"
       onClick={() => {
         dispatch(startGame('play'))
-        playAudio('/audios/soundtrack.mp3', true)
+        playAudio("/audios/success.mp3", false);
       }}
       >
         Comença!
