@@ -6,6 +6,7 @@ import { addPieceEated, setAction } from "../store/wolf/wolf-slice";
 
 export const useFeedAnimation = () => {
   const [active, setActive] = useState(false);
+  const isMobile = window.innerWidth <= 480;
   const dispatch = useDispatch();
 
   const playAudioAction = () => {
@@ -22,7 +23,7 @@ export const useFeedAnimation = () => {
   };
 
   const { scale } = useSpring({
-    scale: active ? 1.6 : 1.2,
+    scale: active ? (isMobile ? 0.8 : 1.2) : (isMobile ? 0.6 : 0.9),
     config: config.wobbly
   });
 

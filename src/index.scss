@@ -13,6 +13,15 @@ body {
   margin: 0;
 }
 
+p {
+  font-size: 12px;
+
+  @media (width > 768px) {
+    font-size: 16px;
+    
+  }
+}
+
 /*
 Menu
 */
@@ -29,7 +38,7 @@ Menu
   justify-content: space-between;
   text-align: center;
 
-  @media (width < 768px) {
+  @media (width <= 480px) {
     flex-direction: column;
 
   }

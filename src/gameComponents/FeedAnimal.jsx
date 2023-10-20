@@ -1,19 +1,18 @@
-import { useDispatch } from "react-redux"
 import { Banana } from "../components/Banana"
 import { Chicken } from "../components/Chicken"
 import { Green } from "../components/Green"
 import { Lettuce } from "../components/Lettuce"
 
 function FeedAnimal() {
-  const dispatch = useDispatch()
-  
+ 
   return (
     <>
       {/* FOOD */}
-        <Green position={[4, 1, 7]}/>  
-        <Chicken position={[1, 1, 7]}/>
-        <Banana position={[-2, 1, 7]}/>
-        <Lettuce position={[-5, 1, 7]}/>
+        <Green position={[1.5, 0.5, 7]}/>  
+        <Chicken position={[1.5, 2.2, 7]}/>
+        <Banana position={[-1.5, 0.5, 7]}/>
+        <Lettuce position={[-1.5, 2.2, 7]}/>
+
     </>
   )
 }
