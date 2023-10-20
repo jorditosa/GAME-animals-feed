@@ -10,8 +10,8 @@ function Menu() {
 
   return (
     <div className="menu nes-container is-rounded is-centered">
-      <h1>Hola!</h1>
-      <p>Ens ajudes a alimentar el llop?</p>
+      <h1>Hola! 🐺</h1>
+      <p>Ens ajudes a alimentar el llop ?</p>
       <p>Simplement fes click sobre la peça de menjar que vulguis donar-li</p>
       <button 
       type="button"

@@ -8,10 +8,15 @@ function MenuGame() {
     <>
         {/* POINTS BADGE */}
         <Html
-        position={[-4, 6,-5]}
+        position={[-4, 6, 0]}
         >
-          <div className='nes-badge'>
-            <h2><span className="is-warning">{piecesEated}</span></h2>
+          <div className='menu-game nes-container is-rounded'>
+            {
+              piecesEated === 0 ?
+              <p>El llop no ha menjat res</p>
+              :
+              <p>El llop ha menjat <span className="nes-text is-error">{piecesEated}</span></p>
+            }
           </div>
         </Html>
       </> 
