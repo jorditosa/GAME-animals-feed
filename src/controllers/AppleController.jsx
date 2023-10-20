@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
 import { Apple } from "../components/Apple";
 import playAudio from "../helpers/playAudio";
-import { setAction } from "../store/wolf/wolf-slice";
+import { addPieceEated, setAction } from "../store/wolf/wolf-slice";
 
 function AppleController() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   
   const handleClick = () => {
     playAudio("/audios/success.mp3", false);
+
+    dispatch(addPieceEated());
 
     dispatch(setAction('Gallop'));
     // Resetear el estado del juego

@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
 import { Chicken } from "../components/Chicken";
 import playAudio from "../helpers/playAudio";
-import { setAction } from "../store/wolf/wolf-slice";
+import { addPieceEated, setAction } from "../store/wolf/wolf-slice";
 
 function ChickenController() {
   const dispatch = useDispatch()
   const handleClick = () => {
     playAudio("/audios/success.mp3", false)
-    dispatch(setAction('Gallop'))
+    dispatch(setAction('Gallop'));
+
+    dispatch(addPieceEated());
 
     dispatch(setAction('Gallop'));
     // Resetear el estado del juego

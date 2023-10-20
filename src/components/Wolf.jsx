@@ -13,8 +13,6 @@ export function Wolf(props) {
   const { actions } = useAnimations(animations, group)
   const wolfStatus = useSelector(state => state.wolf.wolfStatus);
 
-  console.log(actions);
-
   useEffect(() => {
     // Detiene la acción anterior (si existe)
     if (actions.currentAction) {

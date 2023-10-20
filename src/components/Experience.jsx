@@ -1,6 +1,6 @@
-import { Cylinder, OrbitControls } from "@react-three/drei";
+import { Cylinder, Html, OrbitControls } from "@react-three/drei";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import WolfController from "../controllers/WolfController";
 import FeedAnimal from "../gameComponents/FeedAnimal";
 import { Flowers } from "./Flowers";
@@ -8,8 +8,8 @@ import Grass from "./Grass";
 import { Mountain } from "./Mountain";
 import { Tree } from "./Tree";
 export const Experience = () => {
-  const dispatch = useDispatch()
-  const gameStatus = useSelector(state => state.gameStatus.gameStat)
+  const gameStatus = useSelector(state => state.gameStatus.gameStat);
+  const piecesEated = useSelector(state => state.wolf.piecesEated)
   
   return (
     <>
@@ -31,8 +31,8 @@ export const Experience = () => {
       <Mountain scale={[1,1,1]} position={[-11, -1, -11]} rotation-y={180}/>
       <Mountain scale={[1,2,2]} position={[12, -1, -22]}/>
       <Mountain scale={[4,1,1]} position={[-12, -1, -22]}/>
-      <Tree scale={[1.5,1.5,1.5]} position={[4, -1, 1.5]} rotation-y={2}/>
-      <Tree scale={[1.8,1.8,2.2]} position={[3, -1, -5]} rotation-y={20}/>
+      <Tree scale={[1.5,1.5,1.5]} position={[6, -1, 1.5]} rotation-y={2}/>
+      <Tree scale={[1.8,1.8,2.2]} position={[4, -1, -5]} rotation-y={20}/>
       <Flowers scale={[0.4,0.4,0.4]} position={[-2.2, -1, -1.5]}/>
       <Flowers scale={[0.4,0.5,0.5]} position={[-0.2, 0, -5]}/>
       <Flowers scale={[0.4,0.3,0.6]} position={[-2.5, 0, -4]}/>
@@ -56,6 +56,13 @@ export const Experience = () => {
         </>
         : null
       }
+
+      <Html
+      >
+        <div className='points-badge'>
+          <h2><span class="badge warning">{piecesEated}</span></h2>
+        </div>
+      </Html>
 
     </>
   );
