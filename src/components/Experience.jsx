@@ -21,8 +21,8 @@ export const Experience = () => {
       />
 
       {/* LIGHTS */}
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
+      <ambientLight intensity={1} />
+      <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
 
       {/* BACKGROUND */}
       <Mountain scale={[3,1.4,2]} position={[-7, -1, -25]}/>
@@ -31,11 +31,12 @@ export const Experience = () => {
       <Mountain scale={[1,1,1]} position={[-11, -1, -11]} rotation-y={180}/>
       <Mountain scale={[1,2,2]} position={[12, -1, -22]}/>
       <Mountain scale={[4,1,1]} position={[-12, -1, -22]}/>
-      <Tree scale={[1.5,1.5,1.5]} position={[6, -1, 1.5]} rotation-y={2}/>
-      <Tree scale={[1.8,1.8,2.2]} position={[4, -1, -5]} rotation-y={20}/>
-      <Flowers scale={[0.4,0.4,0.4]} position={[-2.2, -1, -1.5]}/>
-      <Flowers scale={[0.4,0.5,0.5]} position={[-0.2, 0, -5]}/>
-      <Flowers scale={[0.4,0.3,0.6]} position={[-2.5, 0, -4]}/>
+      <Tree scale={[4,6,4]} position={[6, 6, 1.5]} rotation-y={2}/>
+      <Tree scale={[7,7,5]} position={[4, 5, -5]} rotation-y={20}/>
+      <Flowers scale={[0.4,0.4,0.4]} position={[-4, -1, -1.5]}/>
+      <Flowers scale={[0.4,0.5,0.5]} position={[-1.6, 0, -5]}/>
+      <Flowers scale={[0.4,0.3,0.6]} position={[-4.3, 0, -4]}/>
+      <Flowers scale={[0.4,0.3,0.2]} position={[-6, 0, -4]}/>
       
       {/* FLOOR */}
         <RigidBody type="fixed" colliders={false} >
@@ -53,16 +54,19 @@ export const Experience = () => {
         gameStatus === 'play' ?
         <>
           <FeedAnimal />
+
+          {/* POINTS BADGE */}
+          <Html
+          position={[-4, 6, -5]}
+          >
+            <div className='points-badge'>
+              <h2><span className="badge warning">{piecesEated}</span></h2>
+            </div>
+          </Html>
         </>
         : null
       }
 
-      <Html
-      >
-        <div className='points-badge'>
-          <h2><span class="badge warning">{piecesEated}</span></h2>
-        </div>
-      </Html>
 
     </>
   );

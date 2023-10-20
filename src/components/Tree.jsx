@@ -10,10 +10,8 @@ export function Tree(props) {
   const { nodes, materials } = useGLTF('/models/Tree.glb')
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={51.843}>
-        <mesh geometry={nodes.Tree_3_1.geometry} material={materials.Tree_Green} />
-        <mesh geometry={nodes.Tree_3_2.geometry} material={materials.Tree_Wood} />
-      </group>
+      <mesh geometry={nodes['Node-Mesh'].geometry} material={materials.mat9} />
+      <mesh geometry={nodes['Node-Mesh_1'].geometry} material={materials.mat20} />
     </group>
   )
 }

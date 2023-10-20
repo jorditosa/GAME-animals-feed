@@ -9,10 +9,11 @@ function Menu() {
   if (gameStatus === 'play') return null
 
   return (
-    <div className="menu container border border-5 border-primary padding-small">
-      <h4 className="card-title">Ens ajudes a alimentar el llop?</h4>
+    <div className="menu container-md border border-5 border-primary padding">
+      <h3>Hola!</h3>
+      <p>Ens ajudes a alimentar el llop?</p>
       <button 
-      className="btn-secondary"
+      className="btn-warning btn-block"
       onClick={() => {
         dispatch(startGame('play'))
         playAudio("/audios/openning.mp3", false);
