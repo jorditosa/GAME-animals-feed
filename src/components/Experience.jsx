@@ -22,7 +22,7 @@ export const Experience = () => {
 
       {/* LIGHTS */}
       <ambientLight intensity={1} />
-      <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
+      <directionalLight position={[25, 10, 25]} intensity={1} castShadow />
 
       {/* BACKGROUND */}
       <Mountain scale={[3,1.4,2]} position={[-7, -1, -25]}/>

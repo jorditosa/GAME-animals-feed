@@ -1,18 +1,19 @@
-import { useDispatch, useSelector } from "react-redux"
-import AppleController from "../controllers/AppleController"
-import CarrotController from "../controllers/CarrotController"
-import ChickenController from "../controllers/ChickenController"
+import { useDispatch } from "react-redux"
+import { Banana } from "../components/Banana"
+import { Chicken } from "../components/Chicken"
+import { Green } from "../components/Green"
+import { Lettuce } from "../components/Lettuce"
 
 function FeedAnimal() {
   const dispatch = useDispatch()
-  const gameStatus = useSelector(state => state.gameStatus.gameStat)
   
   return (
     <>
       {/* FOOD */}
-        <ChickenController scale={[0.5,0.5,0.5]} position={[5, -1, 3]}/>
-        <AppleController scale={[0.5,0.5,0.5]} position={[-5, -1, 3]}/>  
-        <CarrotController scale={[0.5,0.5,0.5]} position={[3 -1, 3]}/>  
+        <Green position={[4, 1, 7]}/>  
+        <Chicken position={[1, 1, 7]}/>
+        <Banana position={[-2, 1, 7]}/>
+        <Lettuce position={[-5, 1, 7]}/>
     </>
   )
 }
