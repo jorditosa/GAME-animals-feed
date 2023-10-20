@@ -1,5 +1,6 @@
-import { Cylinder, Html, OrbitControls } from "@react-three/drei";
+import { Cylinder, OrbitControls } from "@react-three/drei";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
+import { lazy } from "react";
 import { useSelector } from "react-redux";
 import WolfController from "../controllers/WolfController";
 import FeedAnimal from "../gameComponents/FeedAnimal";
@@ -7,9 +8,11 @@ import { Flowers } from "./Flowers";
 import Grass from "./Grass";
 import { Mountain } from "./Mountain";
 import { Tree } from "./Tree";
+
+const LazyMenuGame = lazy(() => import("../gameComponents/MenuGame"))
+
 export const Experience = () => {
   const gameStatus = useSelector(state => state.gameStatus.gameStat);
-  const piecesEated = useSelector(state => state.wolf.piecesEated)
   
   return (
     <>
@@ -50,19 +53,13 @@ export const Experience = () => {
         <WolfController />
       </group>
 
+      {/************************* PLAYING THE GAME *****************************/}
       {
         gameStatus === 'play' ?
         <>
           <FeedAnimal />
 
-          {/* POINTS BADGE */}
-          <Html
-          position={[-4, 6, -5]}
-          >
-            <div className='points-badge'>
-              <h2><span className="badge warning">{piecesEated}</span></h2>
-            </div>
-          </Html>
+          <LazyMenuGame />
         </>
         : null
       }

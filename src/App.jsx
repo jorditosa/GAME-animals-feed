@@ -1,10 +1,12 @@
 import { Loader } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { useSelector } from "react-redux";
 import { Experience } from "./components/Experience";
-import Menu from "./gameComponents/Menu";
+
+const LazyMenu = lazy(() => import("./gameComponents/Menu"))
+
 
 function App() {
   const gameStatus = useSelector(state => state.gameStatus.gameStat)
@@ -37,7 +39,7 @@ function App() {
       {
         gameStatus !== 'play' 
         ?
-        <Menu />
+        <LazyMenu />
         :
         ''
       }
