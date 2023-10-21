@@ -5,6 +5,7 @@ Command: npx gltfjsx@6.2.13 ./public/models/Apple Green.glb
 import { animated } from '@react-spring/three';
 import { useGLTF } from '@react-three/drei';
 import React from 'react';
+import * as THREE from 'three';
 import { useFeedAnimation } from '../hooks/useFeedAnimation';
 
 export function Green(props) {
@@ -32,6 +33,12 @@ export function Green(props) {
         <mesh geometry={nodes.Apple_Green_1.geometry} material={materials.PaleGreen} />
         <mesh geometry={nodes.Apple_Green_2.geometry} material={materials.DarkBrown} />
         <mesh geometry={nodes.Apple_Green_3.geometry} material={materials.DarkGreen} />
+        <mesh 
+        geometry={new THREE.CircleGeometry(0.006, 64)} 
+        material={new THREE.MeshBasicMaterial({ color: '#009900' })} 
+        position={[0, 0, 0]} 
+        rotation={[Math.PI / 2, 0, Math.PI / 2]}
+      />
       </group>
     </animated.group>
   )

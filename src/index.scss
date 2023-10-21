@@ -1,4 +1,8 @@
 @import "/node_modules/nes.css/css/nes.css";
+@font-face {
+  font-family: 'nes';
+  src: url('/public/fonts/kongtext.ttf');
+}
 
 #root {
   width: 100vw;
@@ -7,6 +11,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'Nes', sans-serif ;
 }
 
 body {
@@ -35,7 +40,6 @@ Menu
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
 
   @media (width <= 480px) {

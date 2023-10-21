@@ -5,6 +5,7 @@ Command: npx gltfjsx@6.2.13 ./public/models/Lettuce.glb
 import { animated } from '@react-spring/three';
 import { useGLTF } from '@react-three/drei';
 import React from 'react';
+import * as THREE from 'three';
 import { useFeedAnimation } from '../hooks/useFeedAnimation';
 
 export function Lettuce(props) {
@@ -28,7 +29,19 @@ export function Lettuce(props) {
     scale={scale}
     onClick={handleClick}
     >
-      <mesh geometry={nodes.Lettuce_Whole.geometry} material={materials.PaleGreen} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
+      <mesh geometry={nodes.Lettuce_Whole.geometry} material={materials.PaleGreen} rotation={[-Math.PI / 2, 0, 0]} scale={75} />
+      <mesh 
+        geometry={new THREE.CircleGeometry(0.6, 64)} 
+        material={
+          new THREE.MeshPhysicalMaterial( {
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.1,
+            roughness: 0.5,
+            color: 0x00ff00,
+            normalScale: new THREE.Vector2( 0.15, 0.15 )
+          })}
+        position={[0, 0, 0]} 
+      />
     </animated.group>
   )
 }

@@ -5,6 +5,7 @@ Command: npx gltfjsx@6.2.13 ./public/models/Chicken Leg.glb
 import { animated } from '@react-spring/three';
 import { useGLTF } from '@react-three/drei';
 import React from 'react';
+import * as THREE from 'three';
 import { useFeedAnimation } from '../hooks/useFeedAnimation';
 
 export function Chicken(props) {
@@ -28,9 +29,14 @@ export function Chicken(props) {
     scale={scale}
     onClick={handleClick}
     >
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+      <group scale={100}>
         <mesh geometry={nodes.ChickenLeg_1.geometry} material={materials.Beige} />
         <mesh geometry={nodes.ChickenLeg_2.geometry} material={materials.DarkBrown} />
+        <mesh 
+        geometry={new THREE.CircleGeometry(0.006, 64)} 
+        material={new THREE.MeshBasicMaterial({ color: '#ff9900' })} 
+        position={[0, 0, 0]} 
+      />
       </group>
     </animated.group>
   )

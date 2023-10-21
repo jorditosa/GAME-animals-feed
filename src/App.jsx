@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Canvas linear camera={{ position: [0, 2.5, 15], fov: 65 }}>
-        <color attach="background" args={["#DFFCFF"]} />
+        <color attach="background" args={["#DFFCFF"]} />º
         <Suspense>
           <Physics>
             <Experience />
