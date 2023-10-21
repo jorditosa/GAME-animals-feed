@@ -8,11 +8,12 @@ function FeedAnimal() {
   return (
     <>
       {/* FOOD */}
-        <Green position={[1.5, 0.5, 7]}/>  
-        <Chicken position={[1.5, 2.2, 7]}/>
-        <Banana position={[-1.5, 0.5, 7]}/>
-        <Lettuce position={[-1.5, 2.2, 7]}/>
-
+        <group position={[0,0,0]}>
+            <Green position={[1, 0.3, 8]}/>  
+            <Chicken position={[1, 1.8, 8]}/>
+            <Banana position={[-1, 0.3, 8]}/>
+            <Lettuce position={[-1, 1.8, 8]}/>
+        </group>
     </>
   )
 }

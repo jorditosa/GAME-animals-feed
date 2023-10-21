@@ -7,7 +7,6 @@ import { Experience } from "./components/Experience";
 
 const LazyMenu = lazy(() => import("./gameComponents/Menu"))
 
-
 function App() {
   const gameStatus = useSelector(state => state.gameStatus.gameStat)
 

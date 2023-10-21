@@ -22,12 +22,10 @@ export const useFeedAnimation = () => {
     }, 2000);
   };
 
-  const { scale } = useSpring({
-    scale: active ? (isMobile ? 0.8 : 1.2) : (isMobile ? 0.6 : 0.9),
-    config: config.wobbly
+  const { scale, position } = useSpring({
+    scale: active ? (isMobile ? 0.9 : 1.4) : (isMobile ? 0.6 : 0.9),
+    config: config.slow
   });
-
-  console.log(scale);
 
   return {
     dispatchActions,

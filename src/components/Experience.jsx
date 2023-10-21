@@ -21,11 +21,12 @@ export const Experience = () => {
       enableRotate={true}
       enableZoom={false}
       maxPolarAngle={Math.PI / 2.5}
+      enablePan={false}
       />
 
       {/* LIGHTS */}
-      <ambientLight intensity={1} />
-      <directionalLight position={[25, 10, 25]} intensity={1} castShadow />
+      <directionalLight position={[0, 4, 10]} intensity={1.5} castShadow />
+      <ambientLight intensity={0.5} />
 
       {/* BACKGROUND */}
       <Mountain scale={[3,1.4,2]} position={[-7, -1, -25]}/>
@@ -57,7 +58,7 @@ export const Experience = () => {
       {
         gameStatus === 'play' ?
         <>
-          <FeedAnimal />
+          <FeedAnimal position={[0,0,0]} />
 
           <LazyMenuGame />
         </>

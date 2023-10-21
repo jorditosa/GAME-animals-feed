@@ -8,7 +8,7 @@ function MenuGame() {
     <>
         {/* POINTS BADGE */}
         <Html
-        position={[-4, 6, 0]}
+        position={[0, 8, 0]}
         >
           <div className='menu-game nes-container is-rounded'>
             {

@@ -4,13 +4,18 @@ Command: npx gltfjsx@6.2.13 ./public/models/Chicken Leg.glb
 */
 import { animated } from '@react-spring/three';
 import { useGLTF } from '@react-three/drei';
-import React from 'react';
-import * as THREE from 'three';
+import { useRef } from 'react';
+import { useFrame } from 'react-three-fiber';
 import { useFeedAnimation } from '../hooks/useFeedAnimation';
 
-export function Chicken(props) {
+export function Chicken({position}) {
+  const ref = useRef();
   const { nodes, materials } = useGLTF('/models/Chicken Leg.glb');
   const { dispatchActions, playAudioAction, scale, active, setActive } = useFeedAnimation();
+
+  useFrame(() => {
+    ref.current.rotation.y += 0.01;
+  } );
 
   const handleClick = () => {
     setActive(!active)
@@ -24,7 +29,8 @@ export function Chicken(props) {
 
   return (
     <animated.group 
-    {...props} 
+    ref={ref}
+    position={position}
     dispose={null}
     scale={scale}
     onClick={handleClick}
@@ -32,11 +38,6 @@ export function Chicken(props) {
       <group scale={100}>
         <mesh geometry={nodes.ChickenLeg_1.geometry} material={materials.Beige} />
         <mesh geometry={nodes.ChickenLeg_2.geometry} material={materials.DarkBrown} />
-        <mesh 
-        geometry={new THREE.CircleGeometry(0.006, 64)} 
-        material={new THREE.MeshBasicMaterial({ color: '#ff9900' })} 
-        position={[0, 0, 0]} 
-      />
       </group>
     </animated.group>
   )

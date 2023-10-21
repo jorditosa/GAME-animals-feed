@@ -4,13 +4,18 @@ Command: npx gltfjsx@6.2.13 ./public/models/Lettuce.glb
 */
 import { animated } from '@react-spring/three';
 import { useGLTF } from '@react-three/drei';
-import React from 'react';
-import * as THREE from 'three';
+import { useRef } from 'react';
+import { useFrame } from 'react-three-fiber';
 import { useFeedAnimation } from '../hooks/useFeedAnimation';
 
-export function Lettuce(props) {
+export function Lettuce({position}) {
+  const ref = useRef();
   const { nodes, materials } = useGLTF('/models/Lettuce.glb');
   const { dispatchActions, playAudioAction, scale, active, setActive } = useFeedAnimation();
+
+  useFrame(() => {
+    ref.current.rotation.y += 0.01;
+  });
 
   const handleClick = () => {
     setActive(!active)
@@ -24,24 +29,12 @@ export function Lettuce(props) {
 
   return (
     <animated.group 
-    {...props} 
-    dispose={null}
+    ref={ref}
+    position={position}
     scale={scale}
     onClick={handleClick}
     >
       <mesh geometry={nodes.Lettuce_Whole.geometry} material={materials.PaleGreen} rotation={[-Math.PI / 2, 0, 0]} scale={75} />
-      <mesh 
-        geometry={new THREE.CircleGeometry(0.6, 64)} 
-        material={
-          new THREE.MeshPhysicalMaterial( {
-            clearcoat: 1.0,
-            clearcoatRoughness: 0.1,
-            roughness: 0.5,
-            color: 0x00ff00,
-            normalScale: new THREE.Vector2( 0.15, 0.15 )
-          })}
-        position={[0, 0, 0]} 
-      />
     </animated.group>
   )
 }
