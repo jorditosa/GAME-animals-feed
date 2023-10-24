@@ -28,7 +28,7 @@ export function Wolf(props) {
   }, [wolfStatus, actions]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} castShadow>
       <group name="Scene">
         <group name="AnimalArmature">
           <primitive object={nodes.Body} />

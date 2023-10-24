@@ -1,4 +1,4 @@
-import { Loader } from "@react-three/drei";
+import { Loader, Sky } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { Suspense, lazy } from "react";
@@ -12,8 +12,8 @@ function App() {
 
   return (
     <>
-      <Canvas linear camera={{ position: [0, 2.5, 15], fov: 65 }}>
-        <color attach="background" args={["#DFFCFF"]} />º
+      <Canvas linear camera={{ position: [0, 2.5, 15], fov: 65 }} shadows>
+        <Sky sunPosition={[100, 50, 100]} />
         <Suspense>
           <Physics>
             <Experience />

@@ -1,5 +1,5 @@
-import { Cylinder, OrbitControls } from "@react-three/drei";
-import { CylinderCollider, RigidBody } from "@react-three/rapier";
+import { OrbitControls } from "@react-three/drei";
+import { CuboidCollider, RigidBody } from "@react-three/rapier";
 import { lazy } from "react";
 import { useSelector } from "react-redux";
 import WolfController from "../controllers/WolfController";
@@ -16,7 +16,7 @@ export const Experience = () => {
   
   return (
     <>
-      <group position={[0, -0.5, 0]}>
+      <group>
       <OrbitControls 
       enableRotate={true}
       enableZoom={false}
@@ -25,8 +25,8 @@ export const Experience = () => {
       />
 
       {/* LIGHTS */}
-      <directionalLight position={[0, 4, 10]} intensity={1.5} castShadow />
-      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1.5} castShadow />
+      <ambientLight intensity={0.6} />
 
       {/* BACKGROUND */}
       <Mountain scale={[3,1.4,2]} position={[-7, -1, -25]}/>
@@ -35,6 +35,7 @@ export const Experience = () => {
       <Mountain scale={[1,1,1]} position={[-11, -1, -11]} rotation-y={180}/>
       <Mountain scale={[1,2,2]} position={[12, -1, -22]}/>
       <Mountain scale={[4,1,1]} position={[-12, -1, -22]}/>
+      <Mountain scale={[2,3,2]} position={[-20, -1, -22]}/>
       <Tree scale={[4,6,4]} position={[6, 6, 1.5]} rotation-y={2}/>
       <Tree scale={[7,7,5]} position={[4, 5, -5]} rotation-y={20}/>
       <Flowers scale={[0.4,0.4,0.4]} position={[-4, -1, -1.5]}/>
@@ -44,10 +45,8 @@ export const Experience = () => {
       
       {/* FLOOR */}
         <RigidBody type="fixed" colliders={false} >
-          <CylinderCollider args={[1/2, 1]} />
-          <Cylinder scale={[50,0.2,50]} receiveShadow>
-            <Grass />
-          </Cylinder>
+          <CuboidCollider args={[0.5, 0.5, 0.5]} />
+          <Grass />
         </RigidBody>
 
       {/* ANIMAL */}

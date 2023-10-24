@@ -8,10 +8,13 @@ const Grass = () => {
 
   colorMap.wrapS = RepeatWrapping;
   colorMap.wrapT = RepeatWrapping;
-  colorMap.repeat.set(20, 20);
+  colorMap.repeat.set(10, 10);
 
   return (
-        <meshStandardMaterial map={colorMap}/>
+      <mesh rotation-x={-Math.PI / 2} receiveShadow>
+        <planeGeometry args={[5, 5]} />
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
   );
 };
 
