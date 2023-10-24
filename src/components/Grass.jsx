@@ -12,7 +12,7 @@ const Grass = () => {
 
   return (
       <mesh rotation-x={-Math.PI / 2} receiveShadow>
-        <planeGeometry args={[5, 5]} />
+        <planeGeometry args={[ 100, 100]} />
         <meshStandardMaterial map={colorMap} />
       </mesh>
   );
