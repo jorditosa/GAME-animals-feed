@@ -10,7 +10,7 @@ export function Flowers(props) {
   const { nodes, materials } = useGLTF('/models/Flowers.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.DesertMarigold_mesh.geometry} material={materials.DesertMarigold_mat} />
+      <mesh castShadow geometry={nodes.DesertMarigold_mesh.geometry} material={materials.DesertMarigold_mat} />
     </group>
   )
 }

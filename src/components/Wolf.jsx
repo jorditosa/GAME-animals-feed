@@ -8,9 +8,9 @@ import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 
 export function Wolf(props) {
-  const group = useRef()
+  const wolfRef = useRef()
   const { nodes, materials, animations } = useGLTF('/models/Wolf.gltf')
-  const { actions } = useAnimations(animations, group)
+  const { actions } = useAnimations(animations, wolfRef)
   const wolfStatus = useSelector(state => state.wolf.wolfStatus);
 
   useEffect(() => {
@@ -18,17 +18,18 @@ export function Wolf(props) {
     if (actions.currentAction) {
       actions.currentAction.stop();
     }
-
-    // Configura la nueva acción
-    const newAction = actions[wolfStatus];
-    newAction.reset().fadeIn(0.5).play();
-
-    // Actualiza la acción actual
-    actions.currentAction = newAction;
+    if (wolfStatus !== actions.currentAction) {
+      // Configura la nueva acción si es diferente a la acción actual
+      const newAction = actions[wolfStatus];
+      newAction.reset().fadeIn(0.5).play();
+  
+      // Actualiza la acción actual
+      actions.currentAction = newAction;
+    }
   }, [wolfStatus, actions]);
 
   return (
-    <group ref={group} {...props} dispose={null} castShadow>
+    <group ref={wolfRef} {...props} dispose={null} castShadow>
       <group name="Scene">
         <group name="AnimalArmature">
           <primitive object={nodes.Body} />
@@ -37,10 +38,10 @@ export function Wolf(props) {
           <primitive object={nodes.IKBackLegR} />
           <primitive object={nodes.IKFrontLegR} />
           <group name="Wolf">
-            <skinnedMesh name="Cube" geometry={nodes.Cube.geometry} material={materials.Main} skeleton={nodes.Cube.skeleton} />
-            <skinnedMesh name="Cube_1" geometry={nodes.Cube_1.geometry} material={materials.Nose} skeleton={nodes.Cube_1.skeleton} />
-            <skinnedMesh name="Cube_2" geometry={nodes.Cube_2.geometry} material={materials.Main_Light} skeleton={nodes.Cube_2.skeleton} />
-            <skinnedMesh name="Cube_3" geometry={nodes.Cube_3.geometry} material={materials.Eyes_Black} skeleton={nodes.Cube_3.skeleton} />
+            <skinnedMesh castShadow name="Cube" geometry={nodes.Cube.geometry} material={materials.Main} skeleton={nodes.Cube.skeleton} />
+            <skinnedMesh castShadow name="Cube_1" geometry={nodes.Cube_1.geometry} material={materials.Nose} skeleton={nodes.Cube_1.skeleton} />
+            <skinnedMesh castShadow name="Cube_2" geometry={nodes.Cube_2.geometry} material={materials.Main_Light} skeleton={nodes.Cube_2.skeleton} />
+            <skinnedMesh castShadow name="Cube_3" geometry={nodes.Cube_3.geometry} material={materials.Eyes_Black} skeleton={nodes.Cube_3.skeleton} />
           </group>
         </group>
       </group>

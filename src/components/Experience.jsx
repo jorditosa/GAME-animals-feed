@@ -13,7 +13,6 @@ export const Experience = () => {
   
   return (
     <>
-      <group>
       <OrbitControls 
       enableRotate={true}
       enableZoom={false}
@@ -49,7 +48,6 @@ export const Experience = () => {
 
       {/* ANIMAL */}
         <WolfController />
-      </group>
 
       {/************************* PLAYING THE GAME *****************************/}
       {
